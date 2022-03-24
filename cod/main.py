@@ -50,15 +50,15 @@ for label in os.listdir(patches):
     intensity_values = np.array([x for x in range(grayScale.shape[0])])
     plt.bar(intensity_values, grayScale[:, 0], width=5)
     plt.title("Bar histogram gray" + str(label))
-    plt.show()
     plt.savefig("gray" + str(label))
+    plt.show()
 
     for channel in range(0, 3):
         intensity_values = np.array([x for x in range(colorScales[:, channel].shape[0])])
         plt.bar(intensity_values, colorScales[:, channel], width=5)
         plt.title("Bar histogram colors " + str(channel) + str(label))
-        plt.show()
         plt.savefig(str(channel) + str(label))
+        plt.show()
 
     generalGrayScale = generalGrayScale + grayScale
     generalColorScales = generalColorScales + colorScales
