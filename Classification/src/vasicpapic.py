@@ -24,13 +24,13 @@ model = Sequential([
     Flatten(),
     Dense(64, activation='relu'),
     # Output layer com Softmax
-    # Dense(1, activation='softmax')
+    Dropout(0.5),
     Dense(1, activation='sigmoid')
 ])
 
 # SGD, learning rate = 0.001; accuracy as metrics
 model.compile(loss='binary_crossentropy',
-              optimizer=SGD(learning_rate=1e-2),
+              optimizer=SGD(learning_rate=0.01),
               metrics=['accuracy'])
 # model.compile(loss='binary_crossentropy',
 #               optimizer='rmsprop',
@@ -41,7 +41,7 @@ model.compile(loss='binary_crossentropy',
 #            show_dtype=True)
 
 batch_size = 64
-n_epochs = 10
+n_epochs = 50
 
 # Data Augmentation
 # this is the augmentation configuration we will use for training
